@@ -8,7 +8,6 @@ let disTanceToScroll;
 cardSlider.addEventListener("mousedown", (e) => {
     clientX = e.clientX;
     grabbing = true;
-    console.log(clientX)
 })
 
 cardSlider.addEventListener("mouseup", () => {
