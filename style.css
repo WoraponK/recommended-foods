@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --clr-red: #D24D4E;
+    --clr-cream: #F7F0E8;
+    --clr-light: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, p, span {
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    font-family: "Dancing Script", cursive;
+}
+
+.-header {
+    font-weight: 500;
+    color: var(--clr-red);
+}
+
+
+#recommended {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--clr-cream);
+    position: relative;
+    overflow: hidden;
+
+    & h1 {
+        letter-spacing: 1px;
+    }
+    & h1, h2 {
+        font-size: 42px;
+    }
+
+    & h2 {
+        transform: translate(2px, -10px);
+    }
+
+    & .wave-1 {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        animation: waves 15s linear infinite;
+        z-index: 0;
+
+    }
+
+    & .wave-2 {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        animation: waves-reverse 15s linear infinite;
+        z-index: 0;
+    }
+
+    & .bg-object {
+        background-image: url(images/bg-object.png);
+        height: 100%;
+        background-position: center;
+        background-size: 90%;
+        background-repeat: no-repeat;
+    }
+}
+
+.wrapper {
+    padding: 4rem 0 0 12rem;
+    overflow-x: hidden;
+    z-index: 222;
+}
+
+.card-slider {
+    margin: 2rem 0;
+    cursor: grab;
+    width: fit-content;
+    z-index: 999;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    & .-card {
+        height: 325px;
+        width: 225px;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+
+        &:hover {
+            & img {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 150ms;
+                transform: scale(1.5);
+            }
+        }
+
+        & img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+            transform: scale(1.25);
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        & .-card-text {
+            padding: 1.25rem 1rem;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            z-index: 5;
+            color: var(--clr-light);
+            box-shadow: rgba(0, 0, 0, 0.75) 0px -90px 30px -35px inset;
+
+            & p {
+                font-weight: 700;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+
+            & span {
+                font-size: 14px;
+                font-weight: 300;
+                text-transform: lowercase;
+            }
+        }
+    }
+}
+
+.card-inner-slider {
+    display: flex;
+    gap: 1.25rem;
+    z-index: 999;
+}
+
+@keyframes waves {
+    0% {
+        transform: translateX(0) translateZ(0) 
+    }
+    25% {
+        transform: translateX(-25%) translateZ(0) 
+    }
+    50% {
+        transform: translateX(-50%) translateZ(0) 
+    }
+    75% {
+        transform: translateX(-25%) translateZ(0) 
+    }
+    100% {
+        transform: translateX(0) translateZ(0) 
+    }
+}
+
+@keyframes waves-reverse {
+    0% {
+        transform: translateX(-60%) translateZ(0) 
+    }
+    25% {
+        transform: translateX(-50%) translateZ(0) 
+    }
+    50% {
+        transform: translateX(-40%) translateZ(0) 
+    }
+    75% {
+        transform: translateX(-50%) translateZ(0) 
+    }
+    100% {
+        transform: translateX(-60%) translateZ(0) 
+    }
+}
